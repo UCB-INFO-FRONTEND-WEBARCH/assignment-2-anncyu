@@ -1,8 +1,60 @@
 import { useState } from 'react'
+import TaskForm from './components/TaskForm'
+import TaskCounter from './components/TaskCounter'
+import TaskList from './components/TaskList'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // STATE 1: Array of all tasks
+  const [tasks, setTasks] = useState([]);
+  
+  // STATE 2: Current filter ('all', 'active', or 'completed')
+  const [filter, setFilter] = useState('all');
+
+  // FUNCTION 1: Add a new task
+  const addTask = (taskText) => {
+    const newTask = {
+      id: Date.now(), // Unique ID using timestamp
+      text: taskText,
+      completed: false
+    };
+    // Create new array with new task added
+    setTasks([...tasks, newTask]);
+  };
+
+  // FUNCTION 2: Toggle task completion
+  const toggleTask = (id) => {
+    // Map through tasks and flip the completed status for matching ID
+    setTasks(tasks.map(task =>
+      task.id === id 
+        ? { ...task, completed: !task.completed }
+        : task
+    ));
+  };
+
+  // FUNCTION 3: Delete a task
+  const deleteTask = (id) => {
+    // Filter out the task with matching ID
+    setTasks(tasks.filter(task => task.id !== id));
+  };
+
+  // FUNCTION 4: Get filtered tasks based on current filter
+  const getFilteredTasks = () => {
+    if (filter === 'active') {
+      return tasks.filter(task => !task.completed);
+    }
+    if (filter === 'completed') {
+      return tasks.filter(task => task.completed);
+    }
+    return tasks; // 'all' shows everything
+  };
+
+  // Get filtered tasks for display
+  const filteredTasks = getFilteredTasks();
+  
+  // Calculate counts for header and sidebar
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter(task => task.completed).length;
 
   return (
     <>
