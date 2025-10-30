@@ -1,13 +1,76 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>task-manager-react</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Link your CSS file and other references here -->
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+    </head>
+    <body class="page">
+        <!-- Header -->
+         <header class="site-header">
+            <button class="menu-button">
+                <img class="menu-icon" src="./assets/menu_icon.png" alt="Menu Icon">
+            </button>
+            <form>
+               <label class="search-container">
+                <img class="search-icon" src="./assets/search_icon.png" alt="Search Icon">
+                <input class="search-input" type="search" placeholder="Quick Find">
+                </label>
+            </form>
+            <div class="site-header_status">
+                <img class="check-icon" src="./assets/check_icon.png" alt="Check Icon">
+                <span>30/5</span>
+            </div>
+         </header>
+         <!-- Main Content -->
+        <main class="site-main">
+            <!-- Navigation Bar -->
+            <aside class="sidebar">
+                <ul>
+                    <li>
+                        <img class="nav-icon" src="./assets/inbox_icon.png" alt="Inbox Icon">
+                        Inbox
+                        <span class="task-count">5</span>
+                    </li>
+                    <li>
+                        <img class="nav-icon" src="./assets/calendar_icon.png" alt="Today Icon">
+                        Today
+                        <span class="task-count">5</span>
+                    </li>
+                    <li>
+                        <img class="nav-icon" src="./assets/upcoming_icon.png" alt="Upcoming Icon">
+                        Upcoming
+                        <span class="task-count"></span>
+                    </li>
+                </ul>
+            </aside>
+            <section class="main-content">
+                <h1>Inbox</h1>
+                <ul>
+                    <li class="checklist">
+                        <input type="checkbox" class="check-box">
+                        Call Mom
+                    </li>
+                    <li class="checklist">
+                        <input type="checkbox" class="check-box">
+                        Buy the new issue of Scientific American
+                    </li>
+                    <li class="checklist">
+                        <input type="checkbox" class="check-box">
+                        Return the textbook to Josie
+                    </li>
+                    <li class="checklist">
+                        <input type="checkbox" class="check-box">
+                        Buy the new album by Rake
+                    </li>
+                    <li class="checklist">
+                        <input type="checkbox" class="check-box">
+                        Buy a gift card for Dad
+                    </li>
+                </ul>
+
+            </section>
+
+    </body>
 </html>
