@@ -4,7 +4,7 @@ function TaskList({ tasks, onToggle, onDelete }) {
   if (tasks.length === 0) {
     return (
       <div className="empty-state">
-        <p>No tasks yet. Add one above!</p>
+        <p>No tasks yet. Add one below!</p>
       </div>
     );
   }

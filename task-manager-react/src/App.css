@@ -111,6 +111,45 @@ body {
 
 .main-content{
   padding: 1rem;
+  background: #fff;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content h1 {
+  order: 0;
+}
+
+.filter-buttons {
+  order: 1;
+  margin-bottom: 0.5rem;
+  display: flex;
+}
+
+.filter-btn {
+  padding: 0.4rem 0.8rem;
+  background: #dc4c3e;
+}
+
+.add-btn {
+  padding: 0.4rem 0.8rem;
+  margin-left: 0.8rem;
+  background: #dc4c3e;
+}
+
+.task-form {
+  order: 2;
+}
+
+.task-counter {
+  order: 3;
+}
+
+.task-list {
+  order: 4;
 }
 
 .main-content h1{
@@ -119,7 +158,7 @@ body {
 
 .main-content ul{
   padding-left: 0;
-  
+
 }
 
 .main-content .checklist {

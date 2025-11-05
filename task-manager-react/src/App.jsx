@@ -5,10 +5,9 @@ import TaskList from './components/TaskList'
 import './App.css'
 
 function App() {
-  // STATE 1: Array of all tasks
+
   const [tasks, setTasks] = useState([]);
-  
-  // STATE 2: Current filter ('all', 'active', or 'completed')
+
   const [filter, setFilter] = useState('all');
 
   // FUNCTION 1: Add a new task
@@ -80,12 +79,12 @@ function App() {
                       <li>
                           <img className="nav-icon" src="/assets/inbox_icon.png" alt="Inbox Icon"/>
                           Inbox
-                          <span className="task-count">5</span>
+                          <span className="task-count">{totalTasks}</span>
                       </li>
                       <li>
                           <img className="nav-icon" src="/assets/calendar_icon.png" alt="Today Icon"/>
                           Today
-                          <span className="task-count">5</span>
+                          <span className="task-count">0</span>
                       </li>
                       <li>
                           <img className="nav-icon" src="/assets/upcoming_icon.png" alt="Upcoming Icon"/>
@@ -96,28 +95,37 @@ function App() {
               </aside>
               <section className="main-content">
                   <h1>Inbox</h1>
-                  <ul>
-                      <li className="checklist">
-                          <input type="checkbox" className="check-box" />
-                          Call Mom
-                      </li>
-                      <li className="checklist">
-                          <input type="checkbox" className="check-box" />
-                          Buy the new issue of Scientific American
-                      </li>
-                      <li className="checklist">
-                          <input type="checkbox" className="check-box" />
-                          Return the textbook to Josie
-                      </li>
-                      <li className="checklist">
-                          <input type="checkbox" className="check-box" />
-                          Buy the new album by Rake
-                      </li>
-                      <li className="checklist">
-                          <input type="checkbox" className="check-box" />
-                          Buy a gift card for Dad
-                      </li>
-                  </ul>
+                  <TaskForm onAddTask={addTask} />
+                  <div className="filter-buttons">
+                    <button 
+                      className={filter === 'all' ? 'filter-btn active' : 'filter-btn'}
+                      onClick={() => setFilter('all')}
+                    >
+                      All
+                    </button>
+                    <button 
+                      className={filter === 'active' ? 'filter-btn active' : 'filter-btn'}
+                      onClick={() => setFilter('active')}
+                    >
+                      Active
+                    </button>
+                    <button 
+                      className={filter === 'completed' ? 'filter-btn active' : 'filter-btn'}
+                      onClick={() => setFilter('completed')}
+                    >
+                      Completed
+                    </button>
+                  </div>
+                  <TaskCounter 
+                    tasks={filteredTasks} 
+                    allTasks={tasks} 
+                    filter={filter} 
+                  />
+                  <TaskList 
+                    tasks={filteredTasks}
+                    onToggle={toggleTask}
+                    onDelete={deleteTask}
+                  />
               </section>
           </main>
       </div>
