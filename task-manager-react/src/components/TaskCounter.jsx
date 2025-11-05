@@ -1,10 +1,8 @@
 function TaskCounter({ tasks, allTasks, filter }) {
-    // Calculate statistics from all tasks
     const totalTasks = allTasks.length;
     const completedTasks = allTasks.filter(task => task.completed).length;
     const activeTasks = totalTasks - completedTasks;
   
-    // Determine what text to display based on current filter
     let displayText = '';
     
     if (filter === 'all') {

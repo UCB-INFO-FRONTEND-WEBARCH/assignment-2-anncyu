@@ -4,7 +4,7 @@ function TaskForm({ onAddTask }) {
     const [inputValue, setInputValue] = useState('');
   
     const handleSubmit = (e) => {
-      e.preventDefault(); // Prevent page refresh
+      e.preventDefault();
       
       if (inputValue.trim() === '') {
         return;
