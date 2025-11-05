@@ -127,6 +127,7 @@ body {
   order: 1;
   margin-bottom: 0.5rem;
   display: flex;
+  gap: 0.5rem;
 }
 
 .filter-btn {
@@ -140,8 +141,21 @@ body {
   background: #dc4c3e;
 }
 
+.delete-btn {
+  padding: 0.4rem 0.8rem;
+  background: #dc4c3e;
+  margin-bottom: 1rem;
+}
+
 .task-form {
   order: 2;
+}
+
+.task-input {
+  background: #ffffff;
+  border: 1px solid #000000;
+  padding: 0.5rem;
+  color: #000;
 }
 
 .task-counter {
